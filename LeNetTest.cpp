@@ -1,10 +1,11 @@
 #include<bits/stdc++.h>
+#define _ps system("pause")
 
 using namespace std;
 double mem[45210];
 double img[800];
-double c1[6][600], p1[6][150], c2[16][70], p2[16][20];
-const int tmp[] = {
+double c1w[6][30], c1[6][600], p1[6][150], c2w[16][70], c2[16], p2[16][20];
+const int tmpos[25] = {
  0,  1,  2,  3,  4,
 28, 29, 30, 31, 32,
 56, 57, 58, 59, 60,
@@ -24,17 +25,34 @@ int main() {
 		win >> t_b >> t_c >> t_d;
 		mem[i] = t_d;
 	}
+	//conv 1
+	for(int r = 0, i, j; r<6; r++)
+	{
+		for ( int i = 0+r*26, j = 0 ; j < 26 ; i++, j++ )
+		{
+			c1w[r][j] = mem[i];
+		}
+	}
+	//img
 	for ( int i = 44426, j = 0 ; i < 45210 ; i++, j++ )
 	{
 		img[j] = mem[i];
 	}
-	for(int r = 0; r<6; r++)
+	double tmp;
+	for(int r = 0, i, j, k; r<6; r++)
 	{
-		for(int i = 0, j; i<24; i++)
+		for(i = 0; i<24; i++)
 		{
 			for(j = 0; j<24; j++)
-				img[i*24+j];
-			printf("\n");
+			{
+				//calc
+				for(tmp = 0.0, k = 0; k<25; k++)
+				{
+					tmp += c1w[r][k] * img[i*28+j+tmpos[k]];
+				}
+				//printf("%4.1lf ", tmp+c1w[r][25]);
+			}
+			//printf("\n");
 		}
 	}
 //	for(int i = 0, j; i<28; i++)
