@@ -1,4 +1,5 @@
-#include "Dense_1.h"
+#include "Dense_3.h"
+
 #include "define.h"
 
 void Dense_1::calc(int idx) {
