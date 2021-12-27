@@ -27,14 +27,14 @@ void Conv_1::run() {
         int romAddr = rom_addr.read(), ramAddr = ram_addr.read();
         DATA_TYPE data = rom_data_out.read();
         if (flag) {
-            en.write(0);
+            pool_1_en.write(0);
             rom_rd.write(1);
             rom_addr.write(0);
 
             ram_wr.write(0);
             ram_addr.write(0);
             flag = 0;
-        } else if (en.read()) {
+        } else if (pool_1_en.read()) {
             return;
         } else if (output_state) {
             if (ramAddr < 3456) {

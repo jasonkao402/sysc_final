@@ -12,7 +12,8 @@ SC_MODULE(Pool_1) {
     sc_out<bool> ram_wr;
     sc_out<sc_uint<16> > ram_addr;
 
-    sc_in<bool> en;
+    sc_in<bool> pool_1_en;
+    sc_out<bool> conv_2_en;
 
     sc_in<DATA_TYPE> ram_data_out;
     sc_out<DATA_TYPE> ram_data_in;

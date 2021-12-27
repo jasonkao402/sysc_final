@@ -23,20 +23,23 @@ void Pool_1::run() {
         flag = 1;
         output_state = 0;
     } else {
-        if (en.read()) {
+        if (pool_1_en.read()) {
             int ramAddr = ram_addr.read();
             DATA_TYPE data = ram_data_out.read();
             if (flag) {
+                conv_2_en.write(0);
                 ram_wr.write(1);
                 ram_addr.write(0);
                 flag = 0;
+            } else if (conv_2_en.read()) {
+                return;
             } else if (output_state) {
                 if (ramAddr < 864) {
-                    cout << "Pool " << ramAddr << ": " << ans[ramAddr] << '\n';
                     ram_data_in.write(ans[ramAddr]);
                     ram_addr.write(ramAddr + 1);
+                } else {
+                    conv_2_en.write(1);
                 }
-
             } else {
                 if (ramAddr <= 3455) {
                     input[ramAddr] = data;

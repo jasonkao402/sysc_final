@@ -17,7 +17,7 @@ SC_MODULE(Conv_1) {
     sc_out<sc_uint<16> > ram_addr;
     sc_out<DATA_TYPE> ram_data_in;
 
-    sc_out<bool> en;
+    sc_out<bool> pool_1_en;
 
     void run();
     void calc(int, int);
