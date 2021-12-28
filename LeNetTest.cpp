@@ -18,7 +18,8 @@ const int offset_1[25] = {
 36, 37, 38, 39, 40,
 48, 49, 50, 51, 52
 };
-int sixto16[16][6] = {
+
+const int sixto16[16][6] = {
 {1, 1, 1, 0, 0, 0}, {0, 1, 1, 1, 0, 0},
 {0, 0, 1, 1, 1, 0}, {0, 0, 0, 1, 1, 1},
 {1, 0, 0, 0, 1, 1}, {1, 1, 0, 0, 0, 1},
@@ -30,8 +31,8 @@ int sixto16[16][6] = {
 {1, 1, 0, 1, 1, 0}, {0, 1, 1, 0, 1, 1},
 {1, 0, 1, 1, 0, 1}, {1, 1, 1, 1, 1, 1},
 };
-double maxpooling1(int r, int p){
-	//static int offset1[4] = {0, 1, 24, 25};
+
+inline double maxpooling1(int r, int p){
 	return max(max(c1[r][p], c1[r][p+1]), max(c1[r][p+24], c1[r][p+25]));
 }
 
@@ -39,7 +40,7 @@ int main() {
 	string t_b, t_c;
 	double t_d;
 	ifstream win;
-	
+	_ps;
 	cout << "Loading weights and input data...\n";
 	// vvvvv change the path of input file here vvvvv
 	win.open( "LeNet_All_b.txt" );
@@ -114,18 +115,12 @@ int main() {
 					}
 				}
 				c2[s][i*8 + j] = max(0.0, tmp+c2w[r][150]);
-				printf("%4.1lf ", c2[s][i*8+j]);
+				//printf("%4.1lf ", c2[s][i*8+j]);
 			}
-			printf("\n");
+			//printf("\n");
 		}
-		printf("\n");
+		//printf("\n");
 	}
-//	for(int i = 0, j; i<28; i++)
-//	{
-//		for(j = 0; j<28; j++)
-//			printf("%3.1lf ", img[i*28+j]);
-//		printf("\n");
-//	}
 	win.close();
 	cout << "done!\n";
     return 0;
