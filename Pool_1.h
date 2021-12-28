@@ -22,6 +22,7 @@ SC_MODULE(Pool_1) {
     void run();
     DATA_TYPE input[3456], ans[864];
     bool flag, output_state;
+    int output_index;
 
     SC_CTOR(Pool_1) {
         SC_METHOD(run);

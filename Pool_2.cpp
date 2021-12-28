@@ -21,6 +21,7 @@ void Pool_2::calc() {
 void Pool_2::run() {
     if (rst) {
         flag = 1;
+        output_index = 0;
         output_state = 0;
     } else {
         if (pool_2_en.read()) {
@@ -34,16 +35,22 @@ void Pool_2::run() {
             } else if (dense_1_en.read()) {
                 return;
             } else if (output_state) {
-                if (ramAddr < 256) {
-                    ram_data_in.write(ans[ramAddr]);
-                    ram_addr.write(ramAddr + 1);
+                if (output_index < 256) {
+                    ram_addr.write(output_index);
+                    ram_data_in.write(ans[output_index]);
+                    // cout<<"Pool_2: "<<output_index<<'
+                    // '<<ans[output_index]<<'\n';
+                    output_index++;
                 } else {
                     dense_1_en.write(1);
                 }
             } else {
-                if (ramAddr <= 1023) {
-                    input[ramAddr] = data;
-                    if (ramAddr == 1023) {
+                if (ramAddr <= 0) {
+                    ram_addr.write(ramAddr + 1);
+                } else if (ramAddr - 1 <= 1023) {
+                    input[ramAddr - 1] = data;
+                    // cout<<"Pool_2: "<<ramAddr-1<<' '<<data<<'\n';
+                    if (ramAddr - 1 == 1023) {
                         calc();
                         ram_addr.write(0);
                         ram_wr.write(0);

@@ -20,6 +20,7 @@ void Dense_1::run() {
         flag = 1;
         output_state = 0;
         read_weight_state = 0;
+        output_index = 0;
     } else {
         if (dense_1_en.read()) {
             int romAddr = rom_addr.read();
@@ -33,9 +34,12 @@ void Dense_1::run() {
             } else if (dense_2_en.read()) {
                 return;
             } else if (output_state) {
-                if (ramAddr < 120) {
-                    ram_data_in.write(ans[ramAddr]);
-                    ram_addr.write(ramAddr + 1);
+                if (output_index < 120) {
+                    ram_addr.write(output_index);
+                    ram_data_in.write(ans[output_index]);
+                    // cout<<"Dense_1: "<<output_index<<'
+                    // '<<ans[output_index]<<'\n';
+                    output_index++;
                 } else {
                     dense_2_en.write(1);
                 }
@@ -56,9 +60,12 @@ void Dense_1::run() {
                     ram_addr.write(0);
                 }
             } else {
-                if (ramAddr <= 255) {
-                    input[ramAddr] = data;
-                    if (ramAddr == 255) {
+                if (ramAddr <= 0) {
+                    ram_addr.write(ramAddr + 1);
+                } else if (ramAddr - 1 <= 255) {
+                    input[ramAddr - 1] = data;
+                    // cout<<"Dense_1: "<<ramAddr-1<<' '<<data<<'\n';
+                    if (ramAddr - 1 == 255) {
                         flaten();
                         rom_addr.write(2572);
                         rom_rd.write(1);

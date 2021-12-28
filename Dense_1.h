@@ -28,6 +28,7 @@ SC_MODULE(Dense_1) {
 
     DATA_TYPE input[256], flat[256], ans[120], weight[256], bias;
     bool flag, output_state, read_weight_state;
+    int output_index;
 
     SC_CTOR(Dense_1) {
         SC_METHOD(run);

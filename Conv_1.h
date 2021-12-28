@@ -23,6 +23,7 @@ SC_MODULE(Conv_1) {
     void calc(int, int);
     DATA_TYPE input[784], ans[3456], filter[150], bias[6];
     bool flag, output_state;
+    int output_index;
 
     SC_CTOR(Conv_1) {
         SC_METHOD(run);

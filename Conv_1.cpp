@@ -23,6 +23,7 @@ void Conv_1::run() {
     if (rst) {
         flag = 1;
         output_state = 0;
+        output_index = 0;
     } else {
         int romAddr = rom_addr.read(), ramAddr = ram_addr.read();
         DATA_TYPE data = rom_data_out.read();
@@ -37,9 +38,12 @@ void Conv_1::run() {
         } else if (pool_1_en.read()) {
             return;
         } else if (output_state) {
-            if (ramAddr < 3456) {
-                ram_data_in.write(ans[ramAddr]);
-                ram_addr.write(ramAddr + 1);
+            if (output_index < 3456) {
+                ram_addr.write(output_index);
+                ram_data_in.write(ans[output_index]);
+                // cout<<"Conv_1: "<<output_index<<' '<<ans[output_index]<<'\n';
+                output_index++;
+                ram_wr.write(0);
             } else
                 pool_1_en.write(1);
         } else if (romAddr <= 155) {
@@ -57,6 +61,8 @@ void Conv_1::run() {
             if (romAddr == 45209) {
                 calc(0, 0);
                 output_state = 1;
+                ram_addr.write(0);
+                ram_wr.write(0);
             } else
                 rom_addr.write(romAddr + 1);
         }

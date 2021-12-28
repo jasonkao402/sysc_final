@@ -22,6 +22,7 @@ void Pool_1::run() {
     if (rst) {
         flag = 1;
         output_state = 0;
+        output_index = 0;
     } else {
         if (pool_1_en.read()) {
             int ramAddr = ram_addr.read();
@@ -34,16 +35,19 @@ void Pool_1::run() {
             } else if (conv_2_en.read()) {
                 return;
             } else if (output_state) {
-                if (ramAddr < 864) {
-                    ram_data_in.write(ans[ramAddr]);
-                    ram_addr.write(ramAddr + 1);
+                if (output_index < 864) {
+                    ram_addr.write(output_index);
+                    ram_data_in.write(ans[output_index]);
+                    output_index++;
                 } else {
                     conv_2_en.write(1);
                 }
             } else {
-                if (ramAddr <= 3455) {
-                    input[ramAddr] = data;
-                    if (ramAddr == 3455) {
+                if (ramAddr <= 0) {
+                    ram_addr.write(ramAddr + 1);
+                } else if (ramAddr - 1 <= 3455) {
+                    input[ramAddr - 1] = data;
+                    if (ramAddr - 1 == 3455) {
                         calc();
                         ram_addr.write(0);
                         ram_wr.write(0);
