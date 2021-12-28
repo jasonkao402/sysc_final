@@ -114,10 +114,10 @@ int main() {
 				{
 					for(k = 0; k<25; k++)
 					{
-						tmp += sixto16[s][r] * c2w[r][r*25 + k] * p1[r][i*12 + j + offset_2[k]];
+						tmp += sixto16[s][r] * c2w[s][r*25 + k] * p1[r][i*12 + j + offset_2[k]];
 					}
 				}
-				c2[s][i*8 + j] = max(0.0, tmp+c2w[r][150]);
+				c2[s][i*8 + j] = max(0.0, tmp+c2w[s][150]);
 				//printf("%4.1lf ", c2[s][i*8+j]);
 			}
 			//printf("\n");
