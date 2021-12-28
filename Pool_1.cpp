@@ -10,9 +10,9 @@ void Pool_1::calc() {
             for (int k = 0; k < 24; k += 2) {
                 ans[144 * i + 12 * (j / 2) + (k / 2)] =
                     max(input[576 * i + 24 * j + k],
-                        max(input[576 * i + 24 * j + k + 1],
-                            max(input[576 * i + 24 * (j + 1) + k],
-                                input[576 * i + 24 * (j + 1) + k + 1])));
+                    max(input[576 * i + 24 * j + k + 1],
+                    max(input[576 * i + 24 * (j + 1) + k],
+                    	input[576 * i + 24 * (j + 1) + k + 1])));
             }
         }
     }
