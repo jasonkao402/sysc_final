@@ -95,7 +95,7 @@ int main() {
 		{
 			for(j = 0; j<12; j++)
 			{
-				p1[r][i*12 + j] = maxpooling1(r, i*24 + j*2);
+				p1[r][i*12 + j] = maxpooling1(r, i*48 + j*2);
 			}
 		}
 	}
@@ -115,11 +115,11 @@ int main() {
 					}
 				}
 				c2[s][i*8 + j] = max(0.0, tmp+c2w[r][150]);
-				//printf("%4.1lf ", c2[s][i*8+j]);
+				printf("%4.1lf ", c2[s][i*8+j]);
 			}
-			//printf("\n");
+			printf("\n");
 		}
-		//printf("\n");
+		printf("\n");
 	}
 	win.close();
 	cout << "done!\n";
