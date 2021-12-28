@@ -2,15 +2,15 @@
 
 #include "define.h"
 
-void Dense_1::calc(int idx) {
+void Dense_3::calc(int idx) {
     float sum = bias;
     for (int i = 0; i < 84; i++) {
-        sum += weight[i] * flat[i];
+        sum += weight[i] * input[i];
     }
     ans[idx] = sum;
 }
 
-void Dense_1::run() {
+void Dense_3::run() {
     if (rst) {
         flag = 1;
         output_state = 0;
@@ -50,7 +50,7 @@ void Dense_1::run() {
                 if (ramAddr <= 83) {
                     input[ramAddr] = data;
                     if (ramAddr == 83) {
-                        rom_wr.write(1);
+                        rom_rd.write(1);
                         rom_addr.write(43576);
                         read_weight_state = 1;
                     } else

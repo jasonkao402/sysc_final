@@ -41,7 +41,7 @@ void Conv_1::run() {
                 ram_data_in.write(ans[ramAddr]);
                 ram_addr.write(ramAddr + 1);
             } else
-                en.write(1);
+                pool_1_en.write(1);
         } else if (romAddr <= 155) {
             if ((romAddr + 1) % 26 == 0) {
                 bias[romAddr / 26] = data;
