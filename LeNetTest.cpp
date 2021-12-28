@@ -35,6 +35,9 @@ const int sixto16[16][6] = {
 inline double maxpooling1(int r, int p){
 	return max(max(c1[r][p], c1[r][p+1]), max(c1[r][p+24], c1[r][p+25]));
 }
+inline double maxpooling2(int r, int p){
+	return max(max(c2[r][p], c2[r][p+1]), max(c2[r][p+8], c2[r][p+9]));
+}
 
 int main() {
 	string t_b, t_c;
@@ -48,7 +51,7 @@ int main() {
 		win >> t_b >> t_c >> t_d;
 		mem[i] = t_d;
 	}
-	//conv 1
+	//conv 1 weight
 	for(int r = 0, i, j; r<6; r++)
 	{
 		for (i = 0+r*26, j = 0 ; j < 26 ; i++, j++ )
@@ -56,7 +59,7 @@ int main() {
 			c1w[r][j] = mem[i];
 		}
 	}
-	//conv 2
+	//conv 2 weight
 	for(int r = 0, i, j; r<16; r++)
 	{
 		for (i = 156+r*151, j = 0 ; j < 151 ; i++, j++ )
@@ -69,7 +72,7 @@ int main() {
 	{
 		img[j] = mem[i];
 	}
-	//conv 1
+	//conv 1 calc
 	double tmp;
 	for(int r = 0, i, j, k; r<6; r++)
 	{
@@ -88,7 +91,7 @@ int main() {
 			//printf("\n");
 		}
 	}
-	//maxpooling 1
+	//maxpooling 1 calc
 	for(int r = 0, i, j, k; r<6; r++)
 	{
 		for(i = 0; i<12; i++)
@@ -99,7 +102,7 @@ int main() {
 			}
 		}
 	}
-	//conv 2
+	//conv 2 calc
 	for(int r, s = 0, i, j, k; s<16; s++)
 	{
 		for(i = 0; i<8; i++)
@@ -115,7 +118,20 @@ int main() {
 					}
 				}
 				c2[s][i*8 + j] = max(0.0, tmp+c2w[r][150]);
-				printf("%4.1lf ", c2[s][i*8+j]);
+				//printf("%4.1lf ", c2[s][i*8+j]);
+			}
+			//printf("\n");
+		}
+		//printf("\n");
+	}
+	for(int r = 0, i, j, k; r<16; r++)
+	{
+		for(i = 0; i<4; i++)
+		{
+			for(j = 0; j<4; j++)
+			{
+				p2[r][i*4 + j] = maxpooling2(r, i*16 + j*2);
+				printf("%4.1lf ", p2[r][i*4 + j]);
 			}
 			printf("\n");
 		}
