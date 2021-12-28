@@ -2,7 +2,7 @@
 
 #include "define.h"
 
-void Dense_1::flat() {
+void Dense_1::flaten() {
     for (int i = 0; i < 256; i++) {
         flat[i] = input[(i % 16) * 16 + i / 16];
     }
@@ -59,9 +59,9 @@ void Dense_1::run() {
                 if (ramAddr <= 255) {
                     input[ramAddr] = data;
                     if (ramAddr == 255) {
-                        flat();
+                        flaten();
                         rom_addr.write(2572);
-                        rom_wr.write(1);
+                        rom_rd.write(1);
                         read_weight_state = 1;
                     } else
                         ram_addr.write(ramAddr + 1);

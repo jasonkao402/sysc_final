@@ -3,6 +3,7 @@
 #include "define.h"
 
 void Conv_2::calc() {
+    float tmp;
     for (int r, s = 0, i, j, k; s < 16; s++) {
         for (i = 0; i < 8; i++) {
             for (j = 0; j < 8; j++) {
@@ -13,7 +14,7 @@ void Conv_2::calc() {
                                input[144 * r + i * 12 + j + offset_2[k]];
                     }
                 }
-                ans[64 * s + i * 8 + j] = max(0.0, tmp + bias[s]);
+                ans[64 * s + i * 8 + j] = (tmp+bias[r] >= 0 ? tmp+bias[r] : 0);
             }
         }
     }
@@ -64,7 +65,7 @@ void Conv_2::run() {
                 input[ramAddr] = data;
                 if (ramAddr == 863) {
                     rom_addr.write(156);
-                    rom_wr.write(0);
+                    rom_rd.write(0);
                     read_weight_state = 1;
                 } else
                     ram_addr.write(ramAddr + 1);
