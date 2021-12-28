@@ -1,0 +1,1 @@
+vpa::start_simulation Debug/sim {/home/systemc_41/sysc_final/export} {--cwr_wait --cwr_properties_xml Properties.xml} 120

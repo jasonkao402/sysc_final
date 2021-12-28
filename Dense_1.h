@@ -22,7 +22,7 @@ SC_MODULE(Dense_1) {
     sc_in<DATA_TYPE> ram_data_out;
     sc_out<DATA_TYPE> ram_data_in;
 
-    void flat();
+    void flaten();
     void calc(int);
     void run();
 

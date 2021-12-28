@@ -4,7 +4,7 @@
 
 #include "define.h"
 
-void Pool_1::calc() {
+void Pool_2::calc() {
     for (int i = 0; i < 16; i++) {
         for (int j = 0; j < 8; j += 2) {
             for (int k = 0; k < 8; k += 2) {
@@ -38,7 +38,7 @@ void Pool_2::run() {
                     ram_data_in.write(ans[ramAddr]);
                     ram_addr.write(ramAddr + 1);
                 } else {
-                    conv_2_en.write(1);
+                    dense_1_en.write(1);
                 }
             } else {
                 if (ramAddr <= 1023) {
