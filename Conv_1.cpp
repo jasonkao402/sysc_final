@@ -14,8 +14,11 @@ void Conv_1::calc(int x, int y) {
             for (int k = 0; k < 5; k++)
                 sum +=
                     input[28 * x + y + 28 * j + k] * filter[25 * i + 5 * j + k];
-        // sum>=0 may cause error
-        ans[576 * i + 24 * x + y] = (sum >= 0 ? sum : 0);
+        if(sum>=0){
+            ans[576 * i + 24 * x + y] = sum;
+        }else{
+            ans[576 * i + 24 * x + y] = 0;
+        }
     }
     calc(x, y + 1);
 }
@@ -42,7 +45,7 @@ void Conv_1::run() {
             if (output_index < 3456) {
                 ram_addr.write(output_index);
                 ram_data_in.write(ans[output_index]);
-                // cout<<"Conv_1: "<<output_index<<' '<<ans[output_index]<<'\n';
+                //cout<<"Conv_1: "<<output_index<<' '<<ans[output_index]<<'\n';
                 output_index++;
                 ram_wr.write(0);
             } else

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="ASCII"?>
 <pct_data xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="schema.xsd">
  <version>3.0</version>
- <fingerprint>1448ee495c2a9616fc105e72592dbb425e902b3b</fingerprint>
+ <fingerprint>3c56566c2765ea3f7f8ac5bdf4c2e18c4c3c665a</fingerprint>
  <project>
   <system_library>
    <name>Project</name>
@@ -841,22 +841,6 @@
          <in/>
         </bca_port>
         <bca_port>
-         <name>conv_2_en</name>
-         <datatype>
-          <value>bool</value>
-         </datatype>
-         <sc_port_type_regular_port/>
-         <in/>
-        </bca_port>
-        <bca_port>
-         <name>pool_2_en</name>
-         <datatype>
-          <value>bool</value>
-         </datatype>
-         <sc_port_type_regular_port/>
-         <out/>
-        </bca_port>
-        <bca_port>
          <name>rom_rd</name>
          <datatype>
           <value>bool</value>
@@ -912,6 +896,22 @@
          <sc_port_type_regular_port/>
          <out/>
         </bca_port>
+        <bca_port>
+         <name>conv_2_en</name>
+         <datatype>
+          <value>bool</value>
+         </datatype>
+         <sc_port_type_regular_port/>
+         <in/>
+        </bca_port>
+        <bca_port>
+         <name>pool_2_en</name>
+         <datatype>
+          <value>bool</value>
+         </datatype>
+         <sc_port_type_regular_port/>
+         <out/>
+        </bca_port>
        </ports>
        <mappings>
         <bca_mapping>
@@ -925,18 +925,6 @@
          <block_protocol>Default</block_protocol>
          <block_pin>pin</block_pin>
          <encap_port>rst</encap_port>
-        </bca_mapping>
-        <bca_mapping>
-         <block_port>conv_2_en</block_port>
-         <block_protocol>Default</block_protocol>
-         <block_pin>pin</block_pin>
-         <encap_port>conv_2_en</encap_port>
-        </bca_mapping>
-        <bca_mapping>
-         <block_port>pool_2_en</block_port>
-         <block_protocol>Default</block_protocol>
-         <block_pin>pin</block_pin>
-         <encap_port>pool_2_en</encap_port>
         </bca_mapping>
         <bca_mapping>
          <block_port>rom_rd</block_port>
@@ -979,6 +967,18 @@
          <block_protocol>Default</block_protocol>
          <block_pin>pin</block_pin>
          <encap_port>ram_data_in</encap_port>
+        </bca_mapping>
+        <bca_mapping>
+         <block_port>conv_2_en</block_port>
+         <block_protocol>Default</block_protocol>
+         <block_pin>pin</block_pin>
+         <encap_port>conv_2_en</encap_port>
+        </bca_mapping>
+        <bca_mapping>
+         <block_port>pool_2_en</block_port>
+         <block_protocol>Default</block_protocol>
+         <block_pin>pin</block_pin>
+         <encap_port>pool_2_en</encap_port>
         </bca_mapping>
        </mappings>
        <encap_prots>
@@ -1506,38 +1506,6 @@
          <in/>
         </bca_port>
         <bca_port>
-         <name>ram_wr</name>
-         <datatype>
-          <value>bool</value>
-         </datatype>
-         <sc_port_type_regular_port/>
-         <out/>
-        </bca_port>
-        <bca_port>
-         <name>ram_addr</name>
-         <datatype>
-          <value>sc_uint&lt;16></value>
-         </datatype>
-         <sc_port_type_regular_port/>
-         <out/>
-        </bca_port>
-        <bca_port>
-         <name>dense_1_en</name>
-         <datatype>
-          <value>bool</value>
-         </datatype>
-         <sc_port_type_regular_port/>
-         <in/>
-        </bca_port>
-        <bca_port>
-         <name>dense_2_en</name>
-         <datatype>
-          <value>bool</value>
-         </datatype>
-         <sc_port_type_regular_port/>
-         <out/>
-        </bca_port>
-        <bca_port>
          <name>rom_rd</name>
          <datatype>
           <value>bool</value>
@@ -1562,6 +1530,22 @@
          <in/>
         </bca_port>
         <bca_port>
+         <name>ram_wr</name>
+         <datatype>
+          <value>bool</value>
+         </datatype>
+         <sc_port_type_regular_port/>
+         <out/>
+        </bca_port>
+        <bca_port>
+         <name>ram_addr</name>
+         <datatype>
+          <value>sc_uint&lt;16></value>
+         </datatype>
+         <sc_port_type_regular_port/>
+         <out/>
+        </bca_port>
+        <bca_port>
          <name>ram_data_out</name>
          <datatype>
           <value>float</value>
@@ -1573,6 +1557,22 @@
          <name>ram_data_in</name>
          <datatype>
           <value>float</value>
+         </datatype>
+         <sc_port_type_regular_port/>
+         <out/>
+        </bca_port>
+        <bca_port>
+         <name>dense_1_en</name>
+         <datatype>
+          <value>bool</value>
+         </datatype>
+         <sc_port_type_regular_port/>
+         <in/>
+        </bca_port>
+        <bca_port>
+         <name>dense_2_en</name>
+         <datatype>
+          <value>bool</value>
          </datatype>
          <sc_port_type_regular_port/>
          <out/>
@@ -1590,30 +1590,6 @@
          <block_protocol>Default</block_protocol>
          <block_pin>pin</block_pin>
          <encap_port>rst</encap_port>
-        </bca_mapping>
-        <bca_mapping>
-         <block_port>ram_wr</block_port>
-         <block_protocol>Default</block_protocol>
-         <block_pin>pin</block_pin>
-         <encap_port>ram_wr</encap_port>
-        </bca_mapping>
-        <bca_mapping>
-         <block_port>ram_addr</block_port>
-         <block_protocol>Default</block_protocol>
-         <block_pin>pin</block_pin>
-         <encap_port>ram_addr</encap_port>
-        </bca_mapping>
-        <bca_mapping>
-         <block_port>dense_1_en</block_port>
-         <block_protocol>Default</block_protocol>
-         <block_pin>pin</block_pin>
-         <encap_port>dense_1_en</encap_port>
-        </bca_mapping>
-        <bca_mapping>
-         <block_port>dense_2_en</block_port>
-         <block_protocol>Default</block_protocol>
-         <block_pin>pin</block_pin>
-         <encap_port>dense_2_en</encap_port>
         </bca_mapping>
         <bca_mapping>
          <block_port>rom_rd</block_port>
@@ -1634,6 +1610,18 @@
          <encap_port>rom_data_out</encap_port>
         </bca_mapping>
         <bca_mapping>
+         <block_port>ram_wr</block_port>
+         <block_protocol>Default</block_protocol>
+         <block_pin>pin</block_pin>
+         <encap_port>ram_wr</encap_port>
+        </bca_mapping>
+        <bca_mapping>
+         <block_port>ram_addr</block_port>
+         <block_protocol>Default</block_protocol>
+         <block_pin>pin</block_pin>
+         <encap_port>ram_addr</encap_port>
+        </bca_mapping>
+        <bca_mapping>
          <block_port>ram_data_out</block_port>
          <block_protocol>Default</block_protocol>
          <block_pin>pin</block_pin>
@@ -1644,6 +1632,18 @@
          <block_protocol>Default</block_protocol>
          <block_pin>pin</block_pin>
          <encap_port>ram_data_in</encap_port>
+        </bca_mapping>
+        <bca_mapping>
+         <block_port>dense_1_en</block_port>
+         <block_protocol>Default</block_protocol>
+         <block_pin>pin</block_pin>
+         <encap_port>dense_1_en</encap_port>
+        </bca_mapping>
+        <bca_mapping>
+         <block_port>dense_2_en</block_port>
+         <block_protocol>Default</block_protocol>
+         <block_pin>pin</block_pin>
+         <encap_port>dense_2_en</encap_port>
         </bca_mapping>
        </mappings>
        <encap_prots>
@@ -2171,38 +2171,6 @@
          <in/>
         </bca_port>
         <bca_port>
-         <name>ram_wr</name>
-         <datatype>
-          <value>bool</value>
-         </datatype>
-         <sc_port_type_regular_port/>
-         <out/>
-        </bca_port>
-        <bca_port>
-         <name>ram_addr</name>
-         <datatype>
-          <value>sc_uint&lt;16></value>
-         </datatype>
-         <sc_port_type_regular_port/>
-         <out/>
-        </bca_port>
-        <bca_port>
-         <name>dense_2_en</name>
-         <datatype>
-          <value>bool</value>
-         </datatype>
-         <sc_port_type_regular_port/>
-         <in/>
-        </bca_port>
-        <bca_port>
-         <name>dense_3_en</name>
-         <datatype>
-          <value>bool</value>
-         </datatype>
-         <sc_port_type_regular_port/>
-         <out/>
-        </bca_port>
-        <bca_port>
          <name>rom_rd</name>
          <datatype>
           <value>bool</value>
@@ -2227,6 +2195,22 @@
          <in/>
         </bca_port>
         <bca_port>
+         <name>ram_wr</name>
+         <datatype>
+          <value>bool</value>
+         </datatype>
+         <sc_port_type_regular_port/>
+         <out/>
+        </bca_port>
+        <bca_port>
+         <name>ram_addr</name>
+         <datatype>
+          <value>sc_uint&lt;16></value>
+         </datatype>
+         <sc_port_type_regular_port/>
+         <out/>
+        </bca_port>
+        <bca_port>
          <name>ram_data_out</name>
          <datatype>
           <value>float</value>
@@ -2238,6 +2222,22 @@
          <name>ram_data_in</name>
          <datatype>
           <value>float</value>
+         </datatype>
+         <sc_port_type_regular_port/>
+         <out/>
+        </bca_port>
+        <bca_port>
+         <name>dense_2_en</name>
+         <datatype>
+          <value>bool</value>
+         </datatype>
+         <sc_port_type_regular_port/>
+         <in/>
+        </bca_port>
+        <bca_port>
+         <name>dense_3_en</name>
+         <datatype>
+          <value>bool</value>
          </datatype>
          <sc_port_type_regular_port/>
          <out/>
@@ -2255,30 +2255,6 @@
          <block_protocol>Default</block_protocol>
          <block_pin>pin</block_pin>
          <encap_port>rst</encap_port>
-        </bca_mapping>
-        <bca_mapping>
-         <block_port>ram_wr</block_port>
-         <block_protocol>Default</block_protocol>
-         <block_pin>pin</block_pin>
-         <encap_port>ram_wr</encap_port>
-        </bca_mapping>
-        <bca_mapping>
-         <block_port>ram_addr</block_port>
-         <block_protocol>Default</block_protocol>
-         <block_pin>pin</block_pin>
-         <encap_port>ram_addr</encap_port>
-        </bca_mapping>
-        <bca_mapping>
-         <block_port>dense_2_en</block_port>
-         <block_protocol>Default</block_protocol>
-         <block_pin>pin</block_pin>
-         <encap_port>dense_2_en</encap_port>
-        </bca_mapping>
-        <bca_mapping>
-         <block_port>dense_3_en</block_port>
-         <block_protocol>Default</block_protocol>
-         <block_pin>pin</block_pin>
-         <encap_port>dense_3_en</encap_port>
         </bca_mapping>
         <bca_mapping>
          <block_port>rom_rd</block_port>
@@ -2299,6 +2275,18 @@
          <encap_port>rom_data_out</encap_port>
         </bca_mapping>
         <bca_mapping>
+         <block_port>ram_wr</block_port>
+         <block_protocol>Default</block_protocol>
+         <block_pin>pin</block_pin>
+         <encap_port>ram_wr</encap_port>
+        </bca_mapping>
+        <bca_mapping>
+         <block_port>ram_addr</block_port>
+         <block_protocol>Default</block_protocol>
+         <block_pin>pin</block_pin>
+         <encap_port>ram_addr</encap_port>
+        </bca_mapping>
+        <bca_mapping>
          <block_port>ram_data_out</block_port>
          <block_protocol>Default</block_protocol>
          <block_pin>pin</block_pin>
@@ -2309,6 +2297,18 @@
          <block_protocol>Default</block_protocol>
          <block_pin>pin</block_pin>
          <encap_port>ram_data_in</encap_port>
+        </bca_mapping>
+        <bca_mapping>
+         <block_port>dense_2_en</block_port>
+         <block_protocol>Default</block_protocol>
+         <block_pin>pin</block_pin>
+         <encap_port>dense_2_en</encap_port>
+        </bca_mapping>
+        <bca_mapping>
+         <block_port>dense_3_en</block_port>
+         <block_protocol>Default</block_protocol>
+         <block_pin>pin</block_pin>
+         <encap_port>dense_3_en</encap_port>
         </bca_mapping>
        </mappings>
        <encap_prots>
@@ -2836,6 +2836,30 @@
          <in/>
         </bca_port>
         <bca_port>
+         <name>rom_rd</name>
+         <datatype>
+          <value>bool</value>
+         </datatype>
+         <sc_port_type_regular_port/>
+         <out/>
+        </bca_port>
+        <bca_port>
+         <name>rom_addr</name>
+         <datatype>
+          <value>sc_uint&lt;16></value>
+         </datatype>
+         <sc_port_type_regular_port/>
+         <out/>
+        </bca_port>
+        <bca_port>
+         <name>rom_data_out</name>
+         <datatype>
+          <value>float</value>
+         </datatype>
+         <sc_port_type_regular_port/>
+         <in/>
+        </bca_port>
+        <bca_port>
          <name>ram_wr</name>
          <datatype>
           <value>bool</value>
@@ -2863,30 +2887,6 @@
          <name>dense_3_en</name>
          <datatype>
           <value>bool</value>
-         </datatype>
-         <sc_port_type_regular_port/>
-         <in/>
-        </bca_port>
-        <bca_port>
-         <name>rom_rd</name>
-         <datatype>
-          <value>bool</value>
-         </datatype>
-         <sc_port_type_regular_port/>
-         <out/>
-        </bca_port>
-        <bca_port>
-         <name>rom_addr</name>
-         <datatype>
-          <value>sc_uint&lt;16></value>
-         </datatype>
-         <sc_port_type_regular_port/>
-         <out/>
-        </bca_port>
-        <bca_port>
-         <name>rom_data_out</name>
-         <datatype>
-          <value>float</value>
          </datatype>
          <sc_port_type_regular_port/>
          <in/>
@@ -2922,6 +2922,24 @@
          <encap_port>rst</encap_port>
         </bca_mapping>
         <bca_mapping>
+         <block_port>rom_rd</block_port>
+         <block_protocol>Default</block_protocol>
+         <block_pin>pin</block_pin>
+         <encap_port>rom_rd</encap_port>
+        </bca_mapping>
+        <bca_mapping>
+         <block_port>rom_addr</block_port>
+         <block_protocol>Default</block_protocol>
+         <block_pin>pin</block_pin>
+         <encap_port>rom_addr</encap_port>
+        </bca_mapping>
+        <bca_mapping>
+         <block_port>rom_data_out</block_port>
+         <block_protocol>Default</block_protocol>
+         <block_pin>pin</block_pin>
+         <encap_port>rom_data_out</encap_port>
+        </bca_mapping>
+        <bca_mapping>
          <block_port>ram_wr</block_port>
          <block_protocol>Default</block_protocol>
          <block_pin>pin</block_pin>
@@ -2944,24 +2962,6 @@
          <block_protocol>Default</block_protocol>
          <block_pin>pin</block_pin>
          <encap_port>dense_3_en</encap_port>
-        </bca_mapping>
-        <bca_mapping>
-         <block_port>rom_rd</block_port>
-         <block_protocol>Default</block_protocol>
-         <block_pin>pin</block_pin>
-         <encap_port>rom_rd</encap_port>
-        </bca_mapping>
-        <bca_mapping>
-         <block_port>rom_addr</block_port>
-         <block_protocol>Default</block_protocol>
-         <block_pin>pin</block_pin>
-         <encap_port>rom_addr</encap_port>
-        </bca_mapping>
-        <bca_mapping>
-         <block_port>rom_data_out</block_port>
-         <block_protocol>Default</block_protocol>
-         <block_pin>pin</block_pin>
-         <encap_port>rom_data_out</encap_port>
         </bca_mapping>
         <bca_mapping>
          <block_port>result</block_port>
@@ -4425,22 +4425,6 @@
          <out/>
         </bca_port>
         <bca_port>
-         <name>pool_1_en</name>
-         <datatype>
-          <value>bool</value>
-         </datatype>
-         <sc_port_type_regular_port/>
-         <in/>
-        </bca_port>
-        <bca_port>
-         <name>conv_2_en</name>
-         <datatype>
-          <value>bool</value>
-         </datatype>
-         <sc_port_type_regular_port/>
-         <out/>
-        </bca_port>
-        <bca_port>
          <name>ram_data_out</name>
          <datatype>
           <value>float</value>
@@ -4452,6 +4436,22 @@
          <name>ram_data_in</name>
          <datatype>
           <value>float</value>
+         </datatype>
+         <sc_port_type_regular_port/>
+         <out/>
+        </bca_port>
+        <bca_port>
+         <name>pool_1_en</name>
+         <datatype>
+          <value>bool</value>
+         </datatype>
+         <sc_port_type_regular_port/>
+         <in/>
+        </bca_port>
+        <bca_port>
+         <name>conv_2_en</name>
+         <datatype>
+          <value>bool</value>
          </datatype>
          <sc_port_type_regular_port/>
          <out/>
@@ -4483,18 +4483,6 @@
          <encap_port>ram_addr</encap_port>
         </bca_mapping>
         <bca_mapping>
-         <block_port>pool_1_en</block_port>
-         <block_protocol>Default</block_protocol>
-         <block_pin>pin</block_pin>
-         <encap_port>pool_1_en</encap_port>
-        </bca_mapping>
-        <bca_mapping>
-         <block_port>conv_2_en</block_port>
-         <block_protocol>Default</block_protocol>
-         <block_pin>pin</block_pin>
-         <encap_port>conv_2_en</encap_port>
-        </bca_mapping>
-        <bca_mapping>
          <block_port>ram_data_out</block_port>
          <block_protocol>Default</block_protocol>
          <block_pin>pin</block_pin>
@@ -4505,6 +4493,18 @@
          <block_protocol>Default</block_protocol>
          <block_pin>pin</block_pin>
          <encap_port>ram_data_in</encap_port>
+        </bca_mapping>
+        <bca_mapping>
+         <block_port>pool_1_en</block_port>
+         <block_protocol>Default</block_protocol>
+         <block_pin>pin</block_pin>
+         <encap_port>pool_1_en</encap_port>
+        </bca_mapping>
+        <bca_mapping>
+         <block_port>conv_2_en</block_port>
+         <block_protocol>Default</block_protocol>
+         <block_pin>pin</block_pin>
+         <encap_port>conv_2_en</encap_port>
         </bca_mapping>
        </mappings>
        <encap_prots>
@@ -4934,22 +4934,6 @@
          <out/>
         </bca_port>
         <bca_port>
-         <name>pool_2_en</name>
-         <datatype>
-          <value>bool</value>
-         </datatype>
-         <sc_port_type_regular_port/>
-         <in/>
-        </bca_port>
-        <bca_port>
-         <name>dense_1_en</name>
-         <datatype>
-          <value>bool</value>
-         </datatype>
-         <sc_port_type_regular_port/>
-         <out/>
-        </bca_port>
-        <bca_port>
          <name>ram_data_out</name>
          <datatype>
           <value>float</value>
@@ -4961,6 +4945,22 @@
          <name>ram_data_in</name>
          <datatype>
           <value>float</value>
+         </datatype>
+         <sc_port_type_regular_port/>
+         <out/>
+        </bca_port>
+        <bca_port>
+         <name>pool_2_en</name>
+         <datatype>
+          <value>bool</value>
+         </datatype>
+         <sc_port_type_regular_port/>
+         <in/>
+        </bca_port>
+        <bca_port>
+         <name>dense_1_en</name>
+         <datatype>
+          <value>bool</value>
          </datatype>
          <sc_port_type_regular_port/>
          <out/>
@@ -4992,18 +4992,6 @@
          <encap_port>ram_addr</encap_port>
         </bca_mapping>
         <bca_mapping>
-         <block_port>pool_2_en</block_port>
-         <block_protocol>Default</block_protocol>
-         <block_pin>pin</block_pin>
-         <encap_port>pool_2_en</encap_port>
-        </bca_mapping>
-        <bca_mapping>
-         <block_port>dense_1_en</block_port>
-         <block_protocol>Default</block_protocol>
-         <block_pin>pin</block_pin>
-         <encap_port>dense_1_en</encap_port>
-        </bca_mapping>
-        <bca_mapping>
          <block_port>ram_data_out</block_port>
          <block_protocol>Default</block_protocol>
          <block_pin>pin</block_pin>
@@ -5014,6 +5002,18 @@
          <block_protocol>Default</block_protocol>
          <block_pin>pin</block_pin>
          <encap_port>ram_data_in</encap_port>
+        </bca_mapping>
+        <bca_mapping>
+         <block_port>pool_2_en</block_port>
+         <block_protocol>Default</block_protocol>
+         <block_pin>pin</block_pin>
+         <encap_port>pool_2_en</encap_port>
+        </bca_mapping>
+        <bca_mapping>
+         <block_port>dense_1_en</block_port>
+         <block_protocol>Default</block_protocol>
+         <block_pin>pin</block_pin>
+         <encap_port>dense_1_en</encap_port>
         </bca_mapping>
        </mappings>
        <encap_prots>
@@ -10252,101 +10252,6 @@
        </gui>
       </connection>
       <connection io_id="221">
-       <name>C_2</name>
-       <sys_ports>
-        <io_reference>141</io_reference>
-        <io_reference>132</io_reference>
-        <io_reference>149</io_reference>
-        <io_reference>181</io_reference>
-        <io_reference>193</io_reference>
-        <io_reference>205</io_reference>
-       </sys_ports>
-       <gui>
-        <can_be_multipoint>true</can_be_multipoint>
-        <wires>
-         <wire>
-          <first_route>true</first_route>
-          <stroke_width>1</stroke_width>
-          <start_port>
-           <io_reference>141</io_reference>
-          </start_port>
-          <end_port>
-           <io_reference>132</io_reference>
-          </end_port>
-          <segments>
-           <segment x1="25072" y1="24964" x2="25072" y2="25009" orientation="-2"/>
-           <segment x1="25072" y1="25009" x2="25112" y2="25009" orientation="-1"/>
-          </segments>
-         </wire>
-         <wire>
-          <first_route>true</first_route>
-          <stroke_width>1</stroke_width>
-          <start_port>
-           <io_reference>141</io_reference>
-          </start_port>
-          <end_port>
-           <io_reference>149</io_reference>
-          </end_port>
-          <segments>
-           <segment x1="25171" y1="25113" x2="25726" y2="25113" orientation="-1"/>
-           <segment x1="25726" y1="25113" x2="25726" y2="25023" orientation="2"/>
-           <segment x1="25726" y1="25023" x2="25737" y2="25023" orientation="-1"/>
-          </segments>
-         </wire>
-         <wire>
-          <first_route>true</first_route>
-          <stroke_width>1</stroke_width>
-          <start_port>
-           <io_reference>141</io_reference>
-          </start_port>
-          <end_port>
-           <io_reference>181</io_reference>
-          </end_port>
-          <segments>
-           <segment x1="25171" y1="25220" x2="25171" y2="25238" orientation="-2"/>
-           <segment x1="25171" y1="25238" x2="25502" y2="25238" orientation="-1"/>
-           <segment x1="25502" y1="25238" x2="25502" y2="25302" orientation="-2"/>
-           <segment x1="25502" y1="25302" x2="25842" y2="25302" orientation="-1"/>
-           <segment x1="25842" y1="25302" x2="25842" y2="25238" orientation="2"/>
-           <segment x1="25842" y1="25238" x2="25853" y2="25238" orientation="-1"/>
-          </segments>
-         </wire>
-         <wire>
-          <first_route>true</first_route>
-          <stroke_width>1</stroke_width>
-          <start_port>
-           <io_reference>141</io_reference>
-          </start_port>
-          <end_port>
-           <io_reference>193</io_reference>
-          </end_port>
-          <segments>
-           <segment x1="25040" y1="24964" x2="25101" y2="24964" orientation="-1"/>
-           <segment x1="25101" y1="24964" x2="25101" y2="25113" orientation="-2"/>
-           <segment x1="25101" y1="25113" x2="25171" y2="25113" orientation="-1"/>
-           <segment x1="25171" y1="25113" x2="25171" y2="25220" orientation="-2"/>
-           <segment x1="25171" y1="25220" x2="25513" y2="25220" orientation="-1"/>
-          </segments>
-         </wire>
-         <wire>
-          <first_route>true</first_route>
-          <stroke_width>1</stroke_width>
-          <start_port>
-           <io_reference>141</io_reference>
-          </start_port>
-          <end_port>
-           <io_reference>205</io_reference>
-          </end_port>
-          <segments>
-           <segment x1="24946" y1="24964" x2="25040" y2="24964" orientation="-1"/>
-           <segment x1="25040" y1="24964" x2="25040" y2="25263" orientation="-2"/>
-           <segment x1="25040" y1="25263" x2="25070" y2="25263" orientation="-1"/>
-          </segments>
-         </wire>
-        </wires>
-       </gui>
-      </connection>
-      <connection io_id="222">
        <name>C_3</name>
        <sys_ports>
         <io_reference>139</io_reference>
@@ -10445,7 +10350,7 @@
         </wires>
        </gui>
       </connection>
-      <connection io_id="223">
+      <connection io_id="222">
        <name>C_4</name>
        <sys_ports>
         <io_reference>131</io_reference>
@@ -10542,115 +10447,7 @@
         </wires>
        </gui>
       </connection>
-      <connection io_id="224">
-       <name>C_7</name>
-       <sys_ports>
-        <io_reference>135</io_reference>
-        <io_reference>213</io_reference>
-        <io_reference>162</io_reference>
-        <io_reference>153</io_reference>
-        <io_reference>171</io_reference>
-        <io_reference>183</io_reference>
-        <io_reference>195</io_reference>
-       </sys_ports>
-       <gui>
-        <can_be_multipoint>true</can_be_multipoint>
-        <wires>
-         <wire>
-          <first_route>true</first_route>
-          <stroke_width>1</stroke_width>
-          <start_port>
-           <io_reference>135</io_reference>
-          </start_port>
-          <end_port>
-           <io_reference>213</io_reference>
-          </end_port>
-          <segments>
-           <segment x1="25373" y1="25016" x2="25373" y2="25521" orientation="-2"/>
-           <segment x1="25373" y1="25521" x2="25527" y2="25521" orientation="-1"/>
-          </segments>
-         </wire>
-         <wire>
-          <first_route>true</first_route>
-          <stroke_width>1</stroke_width>
-          <start_port>
-           <io_reference>135</io_reference>
-          </start_port>
-          <end_port>
-           <io_reference>162</io_reference>
-          </end_port>
-          <segments>
-           <segment x1="25337" y1="25016" x2="25337" y2="24958" orientation="2"/>
-           <segment x1="25337" y1="24958" x2="25477" y2="24958" orientation="-1"/>
-          </segments>
-         </wire>
-         <wire>
-          <first_route>true</first_route>
-          <stroke_width>1</stroke_width>
-          <start_port>
-           <io_reference>135</io_reference>
-          </start_port>
-          <end_port>
-           <io_reference>153</io_reference>
-          </end_port>
-          <segments>
-           <segment x1="25838" y1="25108" x2="25838" y2="25059" orientation="2"/>
-           <segment x1="25838" y1="25059" x2="25827" y2="25059" orientation="1"/>
-          </segments>
-         </wire>
-         <wire>
-          <first_route>true</first_route>
-          <stroke_width>1</stroke_width>
-          <start_port>
-           <io_reference>135</io_reference>
-          </start_port>
-          <end_port>
-           <io_reference>171</io_reference>
-          </end_port>
-          <segments>
-           <segment x1="25954" y1="25108" x2="26125" y2="25108" orientation="-1"/>
-           <segment x1="26125" y1="25108" x2="26125" y2="25040" orientation="2"/>
-           <segment x1="26125" y1="25040" x2="26114" y2="25040" orientation="1"/>
-          </segments>
-         </wire>
-         <wire>
-          <first_route>true</first_route>
-          <stroke_width>1</stroke_width>
-          <start_port>
-           <io_reference>135</io_reference>
-          </start_port>
-          <end_port>
-           <io_reference>183</io_reference>
-          </end_port>
-          <segments>
-           <segment x1="25614" y1="25064" x2="25726" y2="25064" orientation="-1"/>
-           <segment x1="25726" y1="25064" x2="25726" y2="25108" orientation="-2"/>
-           <segment x1="25726" y1="25108" x2="25954" y2="25108" orientation="-1"/>
-           <segment x1="25954" y1="25108" x2="25954" y2="25284" orientation="-2"/>
-           <segment x1="25954" y1="25284" x2="25943" y2="25284" orientation="1"/>
-          </segments>
-         </wire>
-         <wire>
-          <first_route>true</first_route>
-          <stroke_width>1</stroke_width>
-          <start_port>
-           <io_reference>135</io_reference>
-          </start_port>
-          <end_port>
-           <io_reference>195</io_reference>
-          </end_port>
-          <segments>
-           <segment x1="25202" y1="25016" x2="25466" y2="25016" orientation="-1"/>
-           <segment x1="25466" y1="25016" x2="25466" y2="25064" orientation="-2"/>
-           <segment x1="25466" y1="25064" x2="25614" y2="25064" orientation="-1"/>
-           <segment x1="25614" y1="25064" x2="25614" y2="25266" orientation="-2"/>
-           <segment x1="25614" y1="25266" x2="25603" y2="25266" orientation="1"/>
-          </segments>
-         </wire>
-        </wires>
-       </gui>
-      </connection>
-      <connection io_id="225">
+      <connection io_id="223">
        <name>C_8</name>
        <sys_ports>
         <io_reference>136</io_reference>
@@ -10677,146 +10474,7 @@
         </wires>
        </gui>
       </connection>
-      <connection io_id="226">
-       <name>C_9</name>
-       <sys_ports>
-        <io_reference>160</io_reference>
-        <io_reference>145</io_reference>
-       </sys_ports>
-       <gui>
-        <can_be_multipoint>true</can_be_multipoint>
-        <wires>
-         <wire>
-          <first_route>true</first_route>
-          <stroke_width>1</stroke_width>
-          <start_port>
-           <io_reference>160</io_reference>
-          </start_port>
-          <end_port>
-           <io_reference>145</io_reference>
-          </end_port>
-          <segments>
-           <segment x1="25567" y1="24967" x2="25693" y2="24967" orientation="-1"/>
-           <segment x1="25693" y1="24967" x2="25693" y2="24974" orientation="-2"/>
-           <segment x1="25693" y1="24974" x2="25737" y2="24974" orientation="-1"/>
-          </segments>
-         </wire>
-        </wires>
-       </gui>
-      </connection>
-      <connection io_id="227">
-       <name>C_10</name>
-       <sys_ports>
-        <io_reference>161</io_reference>
-        <io_reference>212</io_reference>
-        <io_reference>152</io_reference>
-        <io_reference>170</io_reference>
-        <io_reference>182</io_reference>
-        <io_reference>194</io_reference>
-        <io_reference>201</io_reference>
-       </sys_ports>
-       <gui>
-        <can_be_multipoint>true</can_be_multipoint>
-        <wires>
-         <wire>
-          <first_route>true</first_route>
-          <stroke_width>1</stroke_width>
-          <start_port>
-           <io_reference>161</io_reference>
-          </start_port>
-          <end_port>
-           <io_reference>212</io_reference>
-          </end_port>
-          <segments>
-           <segment x1="25614" y1="25012" x2="25614" y2="25414" orientation="-2"/>
-           <segment x1="25614" y1="25414" x2="25628" y2="25414" orientation="-1"/>
-           <segment x1="25628" y1="25414" x2="25628" y2="25452" orientation="-2"/>
-           <segment x1="25628" y1="25452" x2="25617" y2="25452" orientation="1"/>
-          </segments>
-         </wire>
-         <wire>
-          <first_route>true</first_route>
-          <stroke_width>1</stroke_width>
-          <start_port>
-           <io_reference>161</io_reference>
-          </start_port>
-          <end_port>
-           <io_reference>152</io_reference>
-          </end_port>
-          <segments>
-           <segment x1="25682" y1="25012" x2="25682" y2="25001" orientation="2"/>
-           <segment x1="25682" y1="25001" x2="25737" y2="25001" orientation="-1"/>
-          </segments>
-         </wire>
-         <wire>
-          <first_route>true</first_route>
-          <stroke_width>1</stroke_width>
-          <start_port>
-           <io_reference>161</io_reference>
-          </start_port>
-          <end_port>
-           <io_reference>170</io_reference>
-          </end_port>
-          <segments>
-           <segment x1="25665" y1="25012" x2="25726" y2="25012" orientation="-1"/>
-           <segment x1="25726" y1="25012" x2="25726" y2="24919" orientation="2"/>
-           <segment x1="25726" y1="24919" x2="26013" y2="24919" orientation="-1"/>
-           <segment x1="26013" y1="24919" x2="26013" y2="24994" orientation="-2"/>
-           <segment x1="26013" y1="24994" x2="26024" y2="24994" orientation="-1"/>
-          </segments>
-         </wire>
-         <wire>
-          <first_route>true</first_route>
-          <stroke_width>1</stroke_width>
-          <start_port>
-           <io_reference>161</io_reference>
-          </start_port>
-          <end_port>
-           <io_reference>182</io_reference>
-          </end_port>
-          <segments>
-           <segment x1="25578" y1="25012" x2="25665" y2="25012" orientation="-1"/>
-           <segment x1="25665" y1="25012" x2="25665" y2="25261" orientation="-2"/>
-           <segment x1="25665" y1="25261" x2="25853" y2="25261" orientation="-1"/>
-          </segments>
-         </wire>
-         <wire>
-          <first_route>true</first_route>
-          <stroke_width>1</stroke_width>
-          <start_port>
-           <io_reference>161</io_reference>
-          </start_port>
-          <end_port>
-           <io_reference>194</io_reference>
-          </end_port>
-          <segments>
-           <segment x1="25502" y1="25143" x2="25502" y2="25243" orientation="-2"/>
-           <segment x1="25502" y1="25243" x2="25513" y2="25243" orientation="-1"/>
-          </segments>
-         </wire>
-         <wire>
-          <first_route>true</first_route>
-          <stroke_width>1</stroke_width>
-          <start_port>
-           <io_reference>161</io_reference>
-          </start_port>
-          <end_port>
-           <io_reference>201</io_reference>
-          </end_port>
-          <segments>
-           <segment x1="25567" y1="25012" x2="25578" y2="25012" orientation="-1"/>
-           <segment x1="25578" y1="25012" x2="25578" y2="25113" orientation="-2"/>
-           <segment x1="25578" y1="25113" x2="25502" y2="25113" orientation="1"/>
-           <segment x1="25502" y1="25113" x2="25502" y2="25143" orientation="-2"/>
-           <segment x1="25502" y1="25143" x2="25059" y2="25143" orientation="1"/>
-           <segment x1="25059" y1="25143" x2="25059" y2="25236" orientation="-2"/>
-           <segment x1="25059" y1="25236" x2="25070" y2="25236" orientation="-1"/>
-          </segments>
-         </wire>
-        </wires>
-       </gui>
-      </connection>
-      <connection io_id="228">
+      <connection io_id="224">
        <name>C_11</name>
        <sys_ports>
         <io_reference>146</io_reference>
@@ -10843,7 +10501,7 @@
         </wires>
        </gui>
       </connection>
-      <connection io_id="229">
+      <connection io_id="225">
        <name>C_12</name>
        <sys_ports>
         <io_reference>169</io_reference>
@@ -10872,7 +10530,7 @@
         </wires>
        </gui>
       </connection>
-      <connection io_id="230">
+      <connection io_id="226">
        <name>C_13</name>
        <sys_ports>
         <io_reference>178</io_reference>
@@ -10899,7 +10557,7 @@
         </wires>
        </gui>
       </connection>
-      <connection io_id="231">
+      <connection io_id="227">
        <name>C_14</name>
        <sys_ports>
         <io_reference>190</io_reference>
@@ -10926,7 +10584,7 @@
         </wires>
        </gui>
       </connection>
-      <connection io_id="232">
+      <connection io_id="228">
        <name>C_16</name>
        <sys_ports>
         <io_reference>207</io_reference>
@@ -10957,38 +10615,7 @@
         </wires>
        </gui>
       </connection>
-      <connection io_id="233">
-       <name>C_17</name>
-       <sys_ports>
-        <io_reference>206</io_reference>
-        <io_reference>217</io_reference>
-       </sys_ports>
-       <gui>
-        <can_be_multipoint>true</can_be_multipoint>
-        <wires>
-         <wire>
-          <first_route>true</first_route>
-          <stroke_width>1</stroke_width>
-          <start_port>
-           <io_reference>206</io_reference>
-          </start_port>
-          <end_port>
-           <io_reference>217</io_reference>
-          </end_port>
-          <segments>
-           <segment x1="25070" y1="25215" x2="25047" y2="25215" orientation="1"/>
-           <segment x1="25047" y1="25215" x2="25047" y2="25434" orientation="-2"/>
-           <segment x1="25047" y1="25434" x2="25146" y2="25434" orientation="-1"/>
-           <segment x1="25146" y1="25434" x2="25146" y2="25569" orientation="-2"/>
-           <segment x1="25146" y1="25569" x2="25976" y2="25569" orientation="-1"/>
-           <segment x1="25976" y1="25569" x2="25976" y2="25494" orientation="2"/>
-           <segment x1="25976" y1="25494" x2="25999" y2="25494" orientation="-1"/>
-          </segments>
-         </wire>
-        </wires>
-       </gui>
-      </connection>
-      <connection io_id="234">
+      <connection io_id="229">
        <name>C_6</name>
        <sys_ports>
         <io_reference>200</io_reference>
@@ -11115,7 +10742,7 @@
         </wires>
        </gui>
       </connection>
-      <connection io_id="235">
+      <connection io_id="230">
        <name>C_5</name>
        <sys_ports>
         <io_reference>187</io_reference>
@@ -11237,6 +10864,379 @@
            <segment x1="25842" y1="25131" x2="25954" y2="25131" orientation="-1"/>
            <segment x1="25954" y1="25131" x2="25954" y2="25169" orientation="-2"/>
            <segment x1="25954" y1="25169" x2="25943" y2="25169" orientation="1"/>
+          </segments>
+         </wire>
+        </wires>
+       </gui>
+      </connection>
+      <connection io_id="231">
+       <name>C_2</name>
+       <sys_ports>
+        <io_reference>141</io_reference>
+        <io_reference>132</io_reference>
+        <io_reference>205</io_reference>
+        <io_reference>193</io_reference>
+        <io_reference>181</io_reference>
+        <io_reference>149</io_reference>
+       </sys_ports>
+       <gui>
+        <can_be_multipoint>true</can_be_multipoint>
+        <wires>
+         <wire>
+          <first_route>true</first_route>
+          <stroke_width>1</stroke_width>
+          <start_port>
+           <io_reference>141</io_reference>
+          </start_port>
+          <end_port>
+           <io_reference>132</io_reference>
+          </end_port>
+          <segments>
+           <segment x1="25072" y1="24964" x2="25072" y2="25009" orientation="-2"/>
+           <segment x1="25072" y1="25009" x2="25112" y2="25009" orientation="-1"/>
+          </segments>
+         </wire>
+         <wire>
+          <first_route>true</first_route>
+          <stroke_width>1</stroke_width>
+          <start_port>
+           <io_reference>141</io_reference>
+          </start_port>
+          <end_port>
+           <io_reference>205</io_reference>
+          </end_port>
+          <segments>
+           <segment x1="25040" y1="24964" x2="25040" y2="25263" orientation="-2"/>
+           <segment x1="25040" y1="25263" x2="25070" y2="25263" orientation="-1"/>
+          </segments>
+         </wire>
+         <wire>
+          <first_route>true</first_route>
+          <stroke_width>1</stroke_width>
+          <start_port>
+           <io_reference>141</io_reference>
+          </start_port>
+          <end_port>
+           <io_reference>193</io_reference>
+          </end_port>
+          <segments>
+           <segment x1="25171" y1="25220" x2="25513" y2="25220" orientation="-1"/>
+          </segments>
+         </wire>
+         <wire>
+          <first_route>true</first_route>
+          <stroke_width>1</stroke_width>
+          <start_port>
+           <io_reference>141</io_reference>
+          </start_port>
+          <end_port>
+           <io_reference>181</io_reference>
+          </end_port>
+          <segments>
+           <segment x1="25171" y1="25113" x2="25171" y2="25238" orientation="-2"/>
+           <segment x1="25171" y1="25238" x2="25502" y2="25238" orientation="-1"/>
+           <segment x1="25502" y1="25238" x2="25502" y2="25302" orientation="-2"/>
+           <segment x1="25502" y1="25302" x2="25842" y2="25302" orientation="-1"/>
+           <segment x1="25842" y1="25302" x2="25842" y2="25238" orientation="2"/>
+           <segment x1="25842" y1="25238" x2="25853" y2="25238" orientation="-1"/>
+          </segments>
+         </wire>
+         <wire>
+          <first_route>true</first_route>
+          <stroke_width>1</stroke_width>
+          <start_port>
+           <io_reference>141</io_reference>
+          </start_port>
+          <end_port>
+           <io_reference>149</io_reference>
+          </end_port>
+          <segments>
+           <segment x1="24946" y1="24964" x2="25101" y2="24964" orientation="-1"/>
+           <segment x1="25101" y1="24964" x2="25101" y2="25113" orientation="-2"/>
+           <segment x1="25101" y1="25113" x2="25726" y2="25113" orientation="-1"/>
+           <segment x1="25726" y1="25113" x2="25726" y2="25023" orientation="2"/>
+           <segment x1="25726" y1="25023" x2="25737" y2="25023" orientation="-1"/>
+          </segments>
+         </wire>
+        </wires>
+       </gui>
+      </connection>
+      <connection io_id="232">
+       <name>C_7</name>
+       <sys_ports>
+        <io_reference>213</io_reference>
+        <io_reference>135</io_reference>
+        <io_reference>162</io_reference>
+        <io_reference>153</io_reference>
+        <io_reference>171</io_reference>
+        <io_reference>183</io_reference>
+        <io_reference>195</io_reference>
+       </sys_ports>
+       <gui>
+        <can_be_multipoint>true</can_be_multipoint>
+        <wires>
+         <wire>
+          <first_route>true</first_route>
+          <stroke_width>1</stroke_width>
+          <start_port>
+           <io_reference>213</io_reference>
+          </start_port>
+          <end_port>
+           <io_reference>135</io_reference>
+          </end_port>
+          <segments>
+           <segment x1="25502" y1="25521" x2="25261" y2="25521" orientation="1"/>
+           <segment x1="25261" y1="25521" x2="25261" y2="25016" orientation="2"/>
+           <segment x1="25261" y1="25016" x2="25202" y2="25016" orientation="1"/>
+          </segments>
+         </wire>
+         <wire>
+          <first_route>true</first_route>
+          <stroke_width>1</stroke_width>
+          <start_port>
+           <io_reference>213</io_reference>
+          </start_port>
+          <end_port>
+           <io_reference>162</io_reference>
+          </end_port>
+          <segments>
+           <segment x1="25516" y1="25521" x2="25502" y2="25521" orientation="1"/>
+           <segment x1="25502" y1="25521" x2="25502" y2="25064" orientation="2"/>
+           <segment x1="25502" y1="25064" x2="25466" y2="25064" orientation="1"/>
+           <segment x1="25466" y1="25064" x2="25466" y2="24958" orientation="2"/>
+           <segment x1="25466" y1="24958" x2="25477" y2="24958" orientation="-1"/>
+          </segments>
+         </wire>
+         <wire>
+          <first_route>true</first_route>
+          <stroke_width>1</stroke_width>
+          <start_port>
+           <io_reference>213</io_reference>
+          </start_port>
+          <end_port>
+           <io_reference>153</io_reference>
+          </end_port>
+          <segments>
+           <segment x1="25614" y1="25131" x2="25614" y2="25108" orientation="2"/>
+           <segment x1="25614" y1="25108" x2="25838" y2="25108" orientation="-1"/>
+           <segment x1="25838" y1="25108" x2="25838" y2="25059" orientation="2"/>
+           <segment x1="25838" y1="25059" x2="25827" y2="25059" orientation="1"/>
+          </segments>
+         </wire>
+         <wire>
+          <first_route>true</first_route>
+          <stroke_width>1</stroke_width>
+          <start_port>
+           <io_reference>213</io_reference>
+          </start_port>
+          <end_port>
+           <io_reference>171</io_reference>
+          </end_port>
+          <segments>
+           <segment x1="25614" y1="25266" x2="25614" y2="25131" orientation="2"/>
+           <segment x1="25614" y1="25131" x2="26125" y2="25131" orientation="-1"/>
+           <segment x1="26125" y1="25131" x2="26125" y2="25040" orientation="2"/>
+           <segment x1="26125" y1="25040" x2="26114" y2="25040" orientation="1"/>
+          </segments>
+         </wire>
+         <wire>
+          <first_route>true</first_route>
+          <stroke_width>1</stroke_width>
+          <start_port>
+           <io_reference>213</io_reference>
+          </start_port>
+          <end_port>
+           <io_reference>183</io_reference>
+          </end_port>
+          <segments>
+           <segment x1="25516" y1="25320" x2="25954" y2="25320" orientation="-1"/>
+           <segment x1="25954" y1="25320" x2="25954" y2="25284" orientation="2"/>
+           <segment x1="25954" y1="25284" x2="25943" y2="25284" orientation="1"/>
+          </segments>
+         </wire>
+         <wire>
+          <first_route>true</first_route>
+          <stroke_width>1</stroke_width>
+          <start_port>
+           <io_reference>213</io_reference>
+          </start_port>
+          <end_port>
+           <io_reference>195</io_reference>
+          </end_port>
+          <segments>
+           <segment x1="25527" y1="25521" x2="25516" y2="25521" orientation="1"/>
+           <segment x1="25516" y1="25521" x2="25516" y2="25302" orientation="2"/>
+           <segment x1="25516" y1="25302" x2="25614" y2="25302" orientation="-1"/>
+           <segment x1="25614" y1="25302" x2="25614" y2="25266" orientation="2"/>
+           <segment x1="25614" y1="25266" x2="25603" y2="25266" orientation="1"/>
+          </segments>
+         </wire>
+        </wires>
+       </gui>
+      </connection>
+      <connection io_id="233">
+       <name>C_10</name>
+       <sys_ports>
+        <io_reference>212</io_reference>
+        <io_reference>201</io_reference>
+        <io_reference>194</io_reference>
+        <io_reference>182</io_reference>
+        <io_reference>170</io_reference>
+        <io_reference>152</io_reference>
+        <io_reference>161</io_reference>
+       </sys_ports>
+       <gui>
+        <can_be_multipoint>true</can_be_multipoint>
+        <wires>
+         <wire>
+          <first_route>true</first_route>
+          <stroke_width>1</stroke_width>
+          <start_port>
+           <io_reference>212</io_reference>
+          </start_port>
+          <end_port>
+           <io_reference>201</io_reference>
+          </end_port>
+          <segments>
+           <segment x1="25502" y1="25414" x2="25059" y2="25414" orientation="1"/>
+           <segment x1="25059" y1="25414" x2="25059" y2="25236" orientation="2"/>
+           <segment x1="25059" y1="25236" x2="25070" y2="25236" orientation="-1"/>
+          </segments>
+         </wire>
+         <wire>
+          <first_route>true</first_route>
+          <stroke_width>1</stroke_width>
+          <start_port>
+           <io_reference>212</io_reference>
+          </start_port>
+          <end_port>
+           <io_reference>194</io_reference>
+          </end_port>
+          <segments>
+           <segment x1="25614" y1="25414" x2="25502" y2="25414" orientation="1"/>
+           <segment x1="25502" y1="25414" x2="25502" y2="25243" orientation="2"/>
+           <segment x1="25502" y1="25243" x2="25513" y2="25243" orientation="-1"/>
+          </segments>
+         </wire>
+         <wire>
+          <first_route>true</first_route>
+          <stroke_width>1</stroke_width>
+          <start_port>
+           <io_reference>212</io_reference>
+          </start_port>
+          <end_port>
+           <io_reference>182</io_reference>
+          </end_port>
+          <segments>
+           <segment x1="25668" y1="25452" x2="25668" y2="25261" orientation="2"/>
+           <segment x1="25668" y1="25261" x2="25853" y2="25261" orientation="-1"/>
+          </segments>
+         </wire>
+         <wire>
+          <first_route>true</first_route>
+          <stroke_width>1</stroke_width>
+          <start_port>
+           <io_reference>212</io_reference>
+          </start_port>
+          <end_port>
+           <io_reference>170</io_reference>
+          </end_port>
+          <segments>
+           <segment x1="25645" y1="25452" x2="25988" y2="25452" orientation="-1"/>
+           <segment x1="25988" y1="25452" x2="25988" y2="25410" orientation="2"/>
+           <segment x1="25988" y1="25410" x2="26013" y2="25410" orientation="-1"/>
+           <segment x1="26013" y1="25410" x2="26013" y2="24994" orientation="2"/>
+           <segment x1="26013" y1="24994" x2="26024" y2="24994" orientation="-1"/>
+          </segments>
+         </wire>
+         <wire>
+          <first_route>true</first_route>
+          <stroke_width>1</stroke_width>
+          <start_port>
+           <io_reference>212</io_reference>
+          </start_port>
+          <end_port>
+           <io_reference>152</io_reference>
+          </end_port>
+          <segments>
+           <segment x1="25628" y1="25452" x2="25645" y2="25452" orientation="-1"/>
+           <segment x1="25645" y1="25452" x2="25645" y2="25001" orientation="2"/>
+           <segment x1="25645" y1="25001" x2="25737" y2="25001" orientation="-1"/>
+          </segments>
+         </wire>
+         <wire>
+          <first_route>true</first_route>
+          <stroke_width>1</stroke_width>
+          <start_port>
+           <io_reference>212</io_reference>
+          </start_port>
+          <end_port>
+           <io_reference>161</io_reference>
+          </end_port>
+          <segments>
+           <segment x1="25617" y1="25452" x2="25628" y2="25452" orientation="-1"/>
+           <segment x1="25628" y1="25452" x2="25628" y2="25414" orientation="2"/>
+           <segment x1="25628" y1="25414" x2="25614" y2="25414" orientation="1"/>
+           <segment x1="25614" y1="25414" x2="25614" y2="25012" orientation="2"/>
+           <segment x1="25614" y1="25012" x2="25567" y2="25012" orientation="1"/>
+          </segments>
+         </wire>
+        </wires>
+       </gui>
+      </connection>
+      <connection io_id="234">
+       <name>C_9</name>
+       <sys_ports>
+        <io_reference>160</io_reference>
+        <io_reference>145</io_reference>
+       </sys_ports>
+       <gui>
+        <can_be_multipoint>true</can_be_multipoint>
+        <wires>
+         <wire>
+          <first_route>true</first_route>
+          <stroke_width>1</stroke_width>
+          <start_port>
+           <io_reference>160</io_reference>
+          </start_port>
+          <end_port>
+           <io_reference>145</io_reference>
+          </end_port>
+          <segments>
+           <segment x1="25567" y1="24967" x2="25693" y2="24967" orientation="-1"/>
+           <segment x1="25693" y1="24967" x2="25693" y2="24974" orientation="-2"/>
+           <segment x1="25693" y1="24974" x2="25737" y2="24974" orientation="-1"/>
+          </segments>
+         </wire>
+        </wires>
+       </gui>
+      </connection>
+      <connection io_id="235">
+       <name>C_15</name>
+       <sys_ports>
+        <io_reference>206</io_reference>
+        <io_reference>217</io_reference>
+       </sys_ports>
+       <gui>
+        <can_be_multipoint>true</can_be_multipoint>
+        <wires>
+         <wire>
+          <first_route>true</first_route>
+          <stroke_width>1</stroke_width>
+          <start_port>
+           <io_reference>206</io_reference>
+          </start_port>
+          <end_port>
+           <io_reference>217</io_reference>
+          </end_port>
+          <segments>
+           <segment x1="25070" y1="25215" x2="25047" y2="25215" orientation="1"/>
+           <segment x1="25047" y1="25215" x2="25047" y2="25434" orientation="-2"/>
+           <segment x1="25047" y1="25434" x2="25134" y2="25434" orientation="-1"/>
+           <segment x1="25134" y1="25434" x2="25134" y2="25557" orientation="-2"/>
+           <segment x1="25134" y1="25557" x2="25988" y2="25557" orientation="-1"/>
+           <segment x1="25988" y1="25557" x2="25988" y2="25494" orientation="2"/>
+           <segment x1="25988" y1="25494" x2="25999" y2="25494" orientation="-1"/>
           </segments>
          </wire>
         </wires>

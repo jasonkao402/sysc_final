@@ -1,4 +1,4 @@
-#define DATA_TYPE_x
+#define x_DATA_TYPE
 
 #ifdef fixed_DATA_TYPE
 #define READ_DATA_TYPE sc_lv<16>
