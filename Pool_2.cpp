@@ -8,6 +8,7 @@ void Pool_2::calc() {
     for (int i = 0; i < 16; i++) {
         for (int j = 0; j < 8; j += 2) {
             for (int k = 0; k < 8; k += 2) {
+                // max(a,b) may cause error
                 ans[16 * i + 4 * (j / 2) + (k / 2)] =
                     max(input[64 * i + 8 * j + k],
                         max(input[64 * i + 8 * j + k + 1],
@@ -49,7 +50,7 @@ void Pool_2::run() {
                     ram_addr.write(ramAddr + 1);
                 } else if (ramAddr - 1 <= 1023) {
                     input[ramAddr - 1] = data;
-                    //cout<<"Pool_2: "<<ramAddr-1<<' '<<data<<'\n';
+                    // cout<<"Pool_2: "<<ramAddr-1<<' '<<data<<'\n';
                     if (ramAddr - 1 == 1023) {
                         calc();
                         ram_addr.write(0);

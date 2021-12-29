@@ -8,6 +8,7 @@ void Pool_1::calc() {
     for (int i = 0; i < 6; i++) {
         for (int j = 0; j < 24; j += 2) {
             for (int k = 0; k < 24; k += 2) {
+                // max(a,b) may cause error
                 ans[144 * i + 12 * (j / 2) + (k / 2)] =
                     max(input[576 * i + 24 * j + k],
                         max(input[576 * i + 24 * j + k + 1],

@@ -9,11 +9,12 @@ void Conv_1::calc(int x, int y) {
     }
     if (x > 23) return;
     for (int i = 0; i < 6; i++) {
-        float sum = bias[i];
+        DATA_TYPE sum = bias[i];
         for (int j = 0; j < 5; j++)
             for (int k = 0; k < 5; k++)
                 sum +=
                     input[28 * x + y + 28 * j + k] * filter[25 * i + 5 * j + k];
+        // sum>=0 may cause error
         ans[576 * i + 24 * x + y] = (sum >= 0 ? sum : 0);
     }
     calc(x, y + 1);
@@ -41,7 +42,7 @@ void Conv_1::run() {
             if (output_index < 3456) {
                 ram_addr.write(output_index);
                 ram_data_in.write(ans[output_index]);
-                //cout<<"Conv_1: "<<output_index<<' '<<ans[output_index]<<'\n';
+                // cout<<"Conv_1: "<<output_index<<' '<<ans[output_index]<<'\n';
                 output_index++;
                 ram_wr.write(0);
             } else

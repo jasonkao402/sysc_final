@@ -3,7 +3,7 @@
 #include "define.h"
 
 void Dense_3::calc(int idx) {
-    float sum = bias;
+    DATA_TYPE sum = bias;
     for (int i = 0; i < 84; i++) {
         sum += weight[i] * input[i];
     }

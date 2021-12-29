@@ -3,11 +3,12 @@
 #include "define.h"
 
 void Conv_2::calc() {
-    float tmp;
+    DATA_TYPE tmp;
     for (int r, s = 0, i, j, k; s < 16; s++) {
         for (i = 0; i < 8; i++) {
             for (j = 0; j < 8; j++) {
                 // calc
+                // tmp = 0 may cause error
                 for (tmp = 0.0, r = 0; r < 6; r++) {
                     for (k = 0; k < 25; k++) {
                         tmp += sixto16[s][r] * filter[150 * s + r * 25 + k] *
