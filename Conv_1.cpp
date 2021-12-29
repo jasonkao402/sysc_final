@@ -41,7 +41,7 @@ void Conv_1::run() {
             if (output_index < 3456) {
                 ram_addr.write(output_index);
                 ram_data_in.write(ans[output_index]);
-                // cout<<"Conv_1: "<<output_index<<' '<<ans[output_index]<<'\n';
+                //cout<<"Conv_1: "<<output_index<<' '<<ans[output_index]<<'\n';
                 output_index++;
                 ram_wr.write(0);
             } else

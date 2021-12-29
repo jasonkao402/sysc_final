@@ -49,7 +49,7 @@ void Pool_2::run() {
                     ram_addr.write(ramAddr + 1);
                 } else if (ramAddr - 1 <= 1023) {
                     input[ramAddr - 1] = data;
-                    // cout<<"Pool_2: "<<ramAddr-1<<' '<<data<<'\n';
+                    //cout<<"Pool_2: "<<ramAddr-1<<' '<<data<<'\n';
                     if (ramAddr - 1 == 1023) {
                         calc();
                         ram_addr.write(0);

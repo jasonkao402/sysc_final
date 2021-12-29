@@ -1,3 +1,5 @@
+#ifndef DENSE2_H
+#define DENSE2_H
 #include <iostream>
 
 #include "define.h"
@@ -33,3 +35,4 @@ SC_MODULE(Dense_2) {
         sensitive << rst.pos() << clk.neg();
     }
 };
+#endif

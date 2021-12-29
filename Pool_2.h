@@ -1,3 +1,5 @@
+#ifndef POOL2_H
+#define POOL2_H
 #include <iostream>
 
 #include "define.h"
@@ -29,3 +31,4 @@ SC_MODULE(Pool_2) {
         sensitive << rst.pos() << clk.neg();
     }
 };
+#endif

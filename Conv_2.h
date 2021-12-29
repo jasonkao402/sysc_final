@@ -1,3 +1,5 @@
+#ifndef CONV2_H
+#define CONV2_H
 #include <iostream>
 
 #include "define.h"
@@ -46,3 +48,4 @@ SC_MODULE(Conv_2) {
         sensitive << rst.pos() << clk.neg();
     }
 };
+#endif
