@@ -3,11 +3,14 @@
 #include "define.h"
 
 void Dense_2::calc(int idx) {
-    DATA_TYPE sum = bias;
+    MUL_DATA_TYPE sum = bias;
     for (int i = 0; i < 120; i++) {
         sum += weight[i] * input[i];
     }
-    ans[idx] = sum;
+    if(sum >= 0)
+        ans[idx] = sum;
+    else
+        ans[idx] = 0;
 }
 
 void Dense_2::run() {
@@ -31,7 +34,12 @@ void Dense_2::run() {
             } else if (output_state) {
                 if (output_index < 84) {
                     ram_addr.write(output_index);
-                    ram_data_in.write(ans[output_index]);
+                    #ifdef fixed_DATA_TYPE
+                        ram_data_in.write(ans[output_index].range(25,10));
+                    #else
+                        ram_data_in.write(ans[output_index]);
+                    #endif
+                    
                     // cout<<"Dense_2: "<<output_index<<'
                     // '<<ans[output_index]<<'\n';
                     output_index++;

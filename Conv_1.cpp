@@ -9,16 +9,15 @@ void Conv_1::calc(int x, int y) {
     }
     if (x > 23) return;
     for (int i = 0; i < 6; i++) {
-        DATA_TYPE sum = bias[i];
+        MUL_DATA_TYPE sum = bias[i];
         for (int j = 0; j < 5; j++)
             for (int k = 0; k < 5; k++)
                 sum +=
                     input[28 * x + y + 28 * j + k] * filter[25 * i + 5 * j + k];
-        if(sum>=0){
+        if(sum>=0)
             ans[576 * i + 24 * x + y] = sum;
-        }else{
+        else
             ans[576 * i + 24 * x + y] = 0;
-        }
     }
     calc(x, y + 1);
 }
@@ -35,7 +34,6 @@ void Conv_1::run() {
             pool_1_en.write(0);
             rom_rd.write(1);
             rom_addr.write(0);
-
             ram_wr.write(0);
             ram_addr.write(0);
             flag = 0;
@@ -44,8 +42,13 @@ void Conv_1::run() {
         } else if (output_state) {
             if (output_index < 3456) {
                 ram_addr.write(output_index);
-                ram_data_in.write(ans[output_index]);
-                //cout<<"Conv_1: "<<output_index<<' '<<ans[output_index]<<'\n';
+                #ifdef fixed_DATA_TYPE
+                    ram_data_in.write(ans[output_index].range(25,10));
+                #else
+                    ram_data_in.write(ans[output_index]);
+                #endif
+                
+                //cout<<"Conv_1: "<<output_index<<' '<<ans[output_index].range(25,10)<<'\n';
                 output_index++;
                 ram_wr.write(0);
             } else

@@ -3,7 +3,7 @@
 #include "define.h"
 
 void Dense_3::calc(int idx) {
-    DATA_TYPE sum = bias;
+    MUL_DATA_TYPE sum = bias;
     for (int i = 0; i < 84; i++) {
         sum += weight[i] * input[i];
     }
@@ -29,7 +29,13 @@ void Dense_3::run() {
             } else if (output_state) {
                 if (output_index < 10) {
                     output_valid.write(1);
-                    result.write(ans[output_index]);
+                    #ifdef fixed_DATA_TYPE
+                        result.write(ans[output_index].range(25,10));
+                    #else
+                        result.write(ans[output_index]);
+                    #endif
+                    
+                    //cout<<output_index<<' '<<ans[output_index].range(25,10)<<'\n';
                     output_index++;
                 }
             } else if (read_weight_state) {
@@ -51,7 +57,7 @@ void Dense_3::run() {
                     ram_addr.write(ramAddr + 1);
                 } else if (ramAddr - 1 <= 83) {
                     input[ramAddr - 1] = data;
-                    // cout<<"Dense_3: "<<ramAddr-1<<' '<<data<<'\n';
+                    //cout<<"Dense_3: "<<ramAddr-1<<' '<<data<<'\n';
                     if (ramAddr - 1 == 83) {
                         rom_rd.write(1);
                         rom_addr.write(43576);

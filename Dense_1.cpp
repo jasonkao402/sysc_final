@@ -8,11 +8,13 @@ void Dense_1::flaten() {
     }
 }
 void Dense_1::calc(int idx) {
-    DATA_TYPE sum = bias;
-    for (int i = 0; i < 256; i++) {
+    MUL_DATA_TYPE sum = bias;
+    for (int i = 0; i < 256; i++)
         sum += weight[i] * flat[i];
-    }
-    ans[idx] = sum;
+    if(sum >= 0)
+        ans[idx] = sum;
+    else
+        ans[idx] = 0;
 }
 
 void Dense_1::run() {
@@ -36,7 +38,12 @@ void Dense_1::run() {
             } else if (output_state) {
                 if (output_index < 120) {
                     ram_addr.write(output_index);
-                    ram_data_in.write(ans[output_index]);
+                    #ifdef fixed_DATA_TYPE
+                        ram_data_in.write(ans[output_index].range(25,10));
+                    #else
+                        ram_data_in.write(ans[output_index]);
+                    #endif
+                    
                     // cout<<"Dense_1: "<<output_index<<'
                     // '<<ans[output_index]<<'\n';
                     output_index++;
@@ -64,7 +71,7 @@ void Dense_1::run() {
                     ram_addr.write(ramAddr + 1);
                 } else if (ramAddr - 1 <= 255) {
                     input[ramAddr - 1] = data;
-                    // cout<<"Dense_1: "<<ramAddr-1<<' '<<data<<'\n';
+                    //cout<<"Dense_1: "<<ramAddr-1<<' '<<data<<'\n';
                     if (ramAddr - 1 == 255) {
                         flaten();
                         rom_addr.write(2572);

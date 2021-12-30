@@ -3,21 +3,20 @@
 #include "define.h"
 
 void Conv_2::calc() {
-    DATA_TYPE tmp;
+    MUL_DATA_TYPE tmp;
     for (int r = 0, s = 0, i, j, k; s < 16; s++) {
         for (i = 0; i < 8; i++) {
             for (j = 0; j < 8; j++) {
                 // calc
-                for (tmp = bias[r], r = 0; r < 6; r++) {
+                for (tmp = bias[s], r = 0; r < 6; r++) {
                     for (k = 0; k < 25; k++) {
                         tmp += sixto16[s][r] * filter[150 * s + r * 25 + k] *
                                input[144 * r + i * 12 + j + offset_2[k]];
                     }
                 }
-                if (tmp >= 0)
-                    ans[64 * s + i * 8 + j] = tmp;
-                else
-                    ans[64 * s + i * 8 + j] = 0;
+                //cout<<s<<' '<<i<<' '<<j<<' '<<tmp<<'\n';
+                if( tmp >= 0)ans[64 * s + i * 8 + j] = tmp;
+                else ans[64 * s + i * 8 + j] = 0;
             }
         }
     }
@@ -46,9 +45,13 @@ void Conv_2::run() {
             } else if (output_state) {
                 if (output_index < 1024) {
                     ram_addr.write(output_index);
-                    ram_data_in.write(ans[output_index]);
-                    // cout<<"Conv2: "<<output_index<<'
-                    // '<<ans[output_index]<<'\n';
+                    #ifdef fixed_DATA_TYPE
+                        ram_data_in.write(ans[output_index].range(25,10));
+                    #else
+                        ram_data_in.write(ans[output_index]);
+                    #endif
+                    
+                    //cout<<"Conv2: "<<output_index<<' '<<ans[output_index].range(25,10)<<'\n';
                     output_index++;
                 } else
                     pool_2_en.write(1);

@@ -39,6 +39,7 @@ void Pool_1::run() {
                 if (output_index < 864) {
                     ram_addr.write(output_index);
                     ram_data_in.write(ans[output_index]);
+                    //cout<<output_index<<' '<<ans[output_index]<<'\n';
                     output_index++;
                 } else {
                     conv_2_en.write(1);

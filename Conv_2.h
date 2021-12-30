@@ -39,7 +39,8 @@ SC_MODULE(Conv_2) {
 
     void run();
     void calc();
-    DATA_TYPE input[864], ans[1024], filter[2400], bias[16];
+    DATA_TYPE input[864], filter[2400], bias[16];
+    MUL_DATA_TYPE ans[1024];
     bool flag, read_weight_state, output_state;
     int output_index;
 

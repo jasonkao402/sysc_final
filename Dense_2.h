@@ -26,7 +26,8 @@ SC_MODULE(Dense_2) {
     void calc(int);
     void run();
 
-    DATA_TYPE input[120], ans[84], weight[120], bias;
+    DATA_TYPE input[120], weight[120], bias;
+    MUL_DATA_TYPE  ans[84];
     bool flag, output_state, read_weight_state;
     int output_index;
 
