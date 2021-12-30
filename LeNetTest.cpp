@@ -34,10 +34,12 @@ int main() {
     string t_b, t_c;
     double t_d;
     ifstream win;
-    _ps;
+    ofstream wout;
+    //_ps;
     cout << "Loading weights and input data...\n";
     // vvvvv change the path of input file here vvvvv
     win.open("LeNet_All_b.txt");
+    wout.open("pool2.txt");
     for (int i = 0; i < 45210; i++) {
         win >> t_b >> t_c >> t_d;
         mem[i] = t_d;
@@ -117,11 +119,12 @@ int main() {
         for (i = 0; i < 4; i++) {
             for (j = 0; j < 4; j++) {
                 p2[r][i * 4 + j] = maxpooling2(r, i * 16 + j * 2);
-                printf("%4.1lf ", p2[r][i * 4 + j]);
+                //int t = i * 16 + j * 2;
+                //wout << t << " " <<t+1 << "\n" << t+8 << " " << t+9 << "\n\n";
             }
-            printf("\n");
+            //wout << "\n";
         }
-        printf("\n");
+        //wout << "\n";
     }
     // dense 1
     for(int i = 0, j; i < 120; i++){
