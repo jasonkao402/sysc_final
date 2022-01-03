@@ -2,37 +2,34 @@ import matplotlib.pyplot as plt; plt.rcdefaults()
 import numpy as np
 import matplotlib.pyplot as plt
 
-res_float = {
-0: -6.31587,
-1: 1.51689,
-2: -4.51784,
-3: 1.89325,
-4: -9.96772,
-5: -1.01239,
-6: -10.5921,
-7: 15.3189,
-8: -4.72124,
-9: -1.65421,
-}
-res_scInt = {
-0: -6.39941,
-1: 1.00879,
-2: -4.43848,
-3: 2.13965,
-4: -10.7549,
-5: -0.944336,
-6: -10.6797,
-7: 15.8906,
-8: -4.82812,
-9: -1.25977,
-}
+float_val = [
+-6.31587,
+1.51689,
+-4.51784,
+1.89325,
+-9.96772,
+-1.01239,
+-10.5921,
+15.3189,
+-4.72124,
+-1.65421, 
+]
+scInt_val = [
+-6.39941,
+1.00879,
+-4.43848,
+2.13965,
+-10.7549,
+-0.944336,
+-10.6797,
+15.8906,
+-4.82812,
+-1.25977,
+]
 
 objects = np.arange(10)
 x_pos = np.arange(10)
-float_val = [res_float[a] for a in objects]
-scInt_val = [res_scInt[a] for a in objects]
-
-plt.title('LeNet Outputs (float)')
+plt.title(f'LeNet Outputs (float, fullConnect), diff = { sum(abs(a - float_val[7]) for a in float_val):.3f}')
 bplt = plt.bar(x_pos, float_val, align='center', alpha=0.5)
 for value in bplt:
     height = value.get_height()
@@ -42,10 +39,11 @@ for value in bplt:
 plt.xticks(x_pos, objects)
 plt.ylabel('Value')
 
-plt.savefig('LeNet_float.png')
+plt.savefig('LeNet_float_fullConnect.png')
 plt.show()
 
-plt.title('LeNet Outputs (sc_int)')
+plt.title(f'LeNet Outputs (sc_int, fullConnect), diff = {sum(abs(a - scInt_val[7]) for a in scInt_val):.3f}')
+
 bplt = plt.bar(x_pos, scInt_val, align='center', alpha=0.5)
 for value in bplt:
     height = value.get_height()
@@ -54,5 +52,5 @@ for value in bplt:
 plt.xticks(x_pos, objects)
 plt.ylabel('Value')
 
-plt.savefig('LeNet_scInt.png')
+plt.savefig('LeNet_scInt_fullConnect.png')
 plt.show()
