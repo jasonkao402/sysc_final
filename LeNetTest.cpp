@@ -104,7 +104,7 @@ int main() {
                 // calc
                 for (tmp = c2w[s][150], r = 0; r < 6; r++) {
                     for (k = 0; k < 25; k++) {
-                        tmp += sixto16[s][r] * c2w[s][r * 25 + k] *
+                        tmp += c2w[s][r * 25 + k] *
                                p1[r][i * 12 + j + offset_2[k]];
                     }
                 }
